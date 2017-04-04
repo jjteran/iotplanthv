@@ -9,6 +9,7 @@ handle["/"] = requestHandlers.iniciar;
 handle["/iniciar"] = requestHandlers.iniciar;
 handle["/subir"] = requestHandlers.subir;
 handle["/reply_breakdGetEntitySet"] = requestHandlers.reply_breakdGetEntitySet;
+handle["/mill_GetEntitySet"] = requestHandlers.mill_GetEntitySet;
 
 connection.init(); //Init database connection
 

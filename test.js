@@ -1,8 +1,19 @@
 var dBConnection = require('./connection');
+var _ = require("underscore");
+var scaleCommHndler = require("./scaleCommandHandler");
 var dataConv = require('./dataConv'),
     value;
 
-value = dataConv.generateCheckSum('83951239');
+value = dataConv.generateCheckSum('0000096300570230');
+console.log('Checksum ' + value);
+
+console.log("Solo string:" + "A010051161761818735".slice(1,-2));
+value = dataConv.generateCheckSum("A010051161761818735".slice(1,-2));
+console.log("Checksum response " + value);
+
+value = 'A010051161761818735';
+value = value.substr(value.length - 2);
+console.log("Checksum original " + value);
 
 var datetime = new Date();
 
@@ -22,7 +33,7 @@ array = [ {
           },
           {
           	codigo: '03',
-          	nombre: 'FRR0F'
+          	nombre: 'DEDD'
           } ];
 
 console.log("Tamaño array: " + array.length);
@@ -33,6 +44,22 @@ setTimeout(function(){
 },1000);
 
 console.log("mensaje despues de timeout");
+
+//Convertir decimal a binario
+console.log(Number(15).toString(2));
+
+//Convertir hex a binario
+value = '2';
+console.log(value + ' ' + parseInt(value, 16).toString(2));
+
+//Llamado dinamico a un metodo o funcion
+//scaleCommHndler["g"]("05", "g", "A23434545"); 
+
+//Busqueda en array
+debugger;
+var someData = _.where(array, { nombre : 'DEDD' });
+console.log("Array length: " + someData.length.toString());
+
 
 //Insertar datos
 /*dBConnection.acquire(function(err, con) {
